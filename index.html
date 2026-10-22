@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11131a">
+  <title>StoryMate — Chat & Create</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-icon">✦</div>
+        <div><strong>StoryMate</strong><small>Your chat, your stories</small></div>
+      </div>
+      <button class="new-chat" id="newChat">＋ New chat</button>
+      <div class="side-label">QUICK START</div>
+      <button class="starter" data-prompt="Help me invent an original fantasy story. Ask me one question at a time.">✨ Invent a story</button>
+      <button class="starter" data-prompt="Let's chat normally for a bit.">💬 Just chat</button>
+      <button class="starter" data-prompt="Help me continue a story from where I left off. Ask me what happened so far if needed.">📖 Continue a story</button>
+      <button class="starter" data-prompt="Help me create an original mythology-inspired adventure with an unexpected twist.">⚡ Mythology & adventure</button>
+      <div class="sidebar-bottom">
+        <p>Chats are saved in this browser on this device.</p>
+        <button class="clear-chat" id="clearChat">Clear current chat</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+        <div class="top-title">StoryMate <span class="online-dot"></span></div>
+        <button class="icon-btn" id="exportChat" title="Download chat as text" aria-label="Download chat">⇩</button>
+      </header>
+
+      <section class="messages" id="messages" aria-live="polite">
+        <div class="welcome" id="welcome">
+          <div class="welcome-mark">✦</div>
+          <h1>What are we imagining today?</h1>
+          <p>Chat normally, explore an idea, or build a story together — one conversation at a time.</p>
+          <div class="suggestions">
+            <button data-prompt="I have an idea for a story, but I need help developing it.">I have a story idea…</button>
+            <button data-prompt="Let's create a suspenseful mystery with memorable characters.">Create a mystery</button>
+            <button data-prompt="Help me create a story about Karna meeting Mahadev after the Kurukshetra war, in an original alternate universe.">Mythology-inspired story</button>
+            <button data-prompt="Give me three unusual story ideas, each with a different genre.">Give me story ideas</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="composer-wrap">
+        <form class="composer" id="chatForm">
+          <textarea id="messageInput" rows="1" maxlength="8000" placeholder="Message StoryMate…" aria-label="Message StoryMate"></textarea>
+          <div class="composer-tools">
+            <span class="hint">Enter to send · Shift + Enter for a new line</span>
+            <button id="sendBtn" type="submit" aria-label="Send message">↑</button>
+          </div>
+        </form>
+        <p class="footnote">AI can make mistakes. Keep a copy of stories you love.</p>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
